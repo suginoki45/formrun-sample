@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+	<link rel="stylesheet" href="https://use.typekit.net/bts3qgp.css">
+	<link rel="stylesheet" href="/dist/css/bundle.min.css">
+	<script src="https://sdk.form.run/js/v2/formrun.js"></script>
+	<title>formrun サンプル</title>
+</head>
+
+<body>
+	<div class="container w-4/5 lg:w-2/5 mx-auto mt-20">
+		<h1 class="text-2xl font-bold text-center">formrun サンプル</h1>
+		<!-- class, action, methodを変更しないでください -->
+		<form class="formrun bg-white shadow-md rounded px-8 pt-6 pb-8 mt-8"
+			action="https://form.run/api/v1/r/vwjf3bb9qsyztt05rxxkagk1" method="post">
+			<!-- ↓自由に要素を追加・編集することができます -->
+			<div class="mt-8">
+				<label class="block text-gray-700 text-sm font-bold mb-2">お名前<span
+						class="ml-2 rounded-full px-1 bg-gray-400 text-xs">必須</span></label>
+				<input name="お名前" type="text"
+					class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					data-formrun-required>
+				<div data-formrun-show-if-error="お名前" class="mt-1 text-red-500 text-xs">
+					お名前を入力してください
+				</div>
+			</div>
+
+			<div class="mt-8">
+				<label class="block text-gray-700 text-sm font-bold mb-2">メールアドレス<span
+						class="ml-2 rounded-full px-1 bg-gray-400 text-xs">必須</span></label>
+				<input name="メールアドレス" type="text"
+					class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					data-formrun-type="email" data-formrun-required>
+				<div data-formrun-show-if-error="メールアドレス" class="mt-1 text-red-500 text-xs">
+					メールアドレスを正しく入力してください
+				</div>
+			</div>
+
+			<div class="mt-8">
+				<label class="block text-gray-700 text-sm font-bold mb-2">お問い合わせ<span
+						class="ml-2 rounded-full px-1 bg-gray-400 text-xs">必須</span></label>
+				<textarea name="お問い合わせ"
+					class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+					data-formrun-required></textarea>
+				<div data-formrun-show-if-error="お問い合わせ" class="mt-1 text-red-500 text-xs">
+					お問い合わせ入力してください
+				</div>
+			</div>
+
+			<div class="mt-8">
+				<label class="md:w-2/3 block text-gray-500 font-bold align-middle leading-tight">
+					<input type="checkbox" name="個人情報利用同意" class="mr-2" data-formrun-required>
+					<span class="text-sm">個人情報利用に同意する</span>
+				</label>
+				<div data-formrun-show-if-error="個人情報利用同意" class="mt-1 text-red-500 text-xs">
+					同意してください
+				</div>
+			</div>
+
+			<!-- ボット投稿をブロックするためのタグ -->
+			<div class="_formrun_gotcha">
+				<style media="screen">
+					._formrun_gotcha {
+						position: absolute !important;
+						width: 1px;
+						height: 1px;
+						overflow: hidden;
+					}
+				</style>
+				<label for="_formrun_gotcha">If you are a human, ignore this field</label>
+				<input id="_formrun_gotcha" type="text" name="_formrun_gotcha" tabindex="-1">
+			</div>
+
+			<button type="submit"
+				class="mt-8 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+				data-formrun-error-text="未入力の項目があります" data-formrun-submitting-text="送信中...">
+				送信
+			</button>
+		</form>
+	</div>
+</body>
+
+</html>
